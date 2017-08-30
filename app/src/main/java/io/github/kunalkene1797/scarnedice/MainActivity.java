@@ -1,5 +1,7 @@
 package io.github.kunalkene1797.scarnedice;
 
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -96,6 +98,16 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "You Win!", Toast.LENGTH_SHORT).show();
                 setscore();
                 pscore.setTextColor(getResources().getColor(R.color.green));
+                AlertDialog.Builder altdlg = new AlertDialog.Builder(this);
+                altdlg.setTitle("You Win!");
+                altdlg.setCancelable(true);
+                altdlg.setPositiveButton("Awesome!", new DialogInterface.OnClickListener(){
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //dismiss the window
+                    }
+                });
+                altdlg.create().show();
             }else {
                 setscore();
             }
@@ -143,6 +155,15 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Computer Wins!", Toast.LENGTH_SHORT).show();
             compscoreview.setTextColor(getResources().getColor(R.color.green));
             setscore();
+            AlertDialog.Builder dlgAlert = new AlertDialog.Builder(this);
+            dlgAlert.setTitle("Computer Wins!");
+            dlgAlert.setCancelable(true);
+            dlgAlert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            //dismiss the dialog
+                        }
+                    });
+            dlgAlert.create().show();
         }else {
             setscore();
         }
