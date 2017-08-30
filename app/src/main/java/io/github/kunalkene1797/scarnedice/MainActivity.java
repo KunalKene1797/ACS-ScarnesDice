@@ -104,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
                 altdlg.setPositiveButton("Awesome!", new DialogInterface.OnClickListener(){
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        //dismiss the window
+                        resetscore();
                     }
                 });
                 altdlg.create().show();
@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
             dlgAlert.setCancelable(true);
             dlgAlert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            //dismiss the dialog
+                            resetscore();
                         }
                     });
             dlgAlert.create().show();
