@@ -117,22 +117,28 @@ public class MainActivity extends AppCompatActivity {
     private void computerplay() {
         holdbtn.setEnabled(false);
         rollbtn.setEnabled(false);
-        int dicevalue = random.nextInt(6) + 1;
+        int dicevalue;
         cscore = 0;
-
+        do{
+            dicevalue = random.nextInt(6) + 1;
             if (dicevalue == 1) {
                 dicefaceview.setImageResource(diceface[dicevalue - 1]);
                 holdbtn.setEnabled(true);
                 rollbtn.setEnabled(true);
-                cscore = cpuinitialscore;
+                compscore = cpuinitialscore;
+                Toast.makeText(this, "Computer Scored " + dicevalue, Toast.LENGTH_SHORT).show();
                 setscore();
+                break;
+
             } else {
                 dicefaceview.setImageResource(diceface[dicevalue - 1]);
                 cscore += dicevalue;
                 setscore();
+                Toast.makeText(this, "Computer Scored " + dicevalue, Toast.LENGTH_SHORT).show();
+                compscore += dicevalue;
             }
-            Toast.makeText(this, "Computer Scored " + dicevalue + ", Your Turn", Toast.LENGTH_SHORT).show();
-        compscore += cscore;
+        }while (cscore < 10);
+
         if(compscore>=winscore){
             Toast.makeText(this, "Computer Wins!", Toast.LENGTH_SHORT).show();
             compscoreview.setTextColor(getResources().getColor(R.color.green));
@@ -152,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
         playerscore = 0;
         currentscore = 0;
         compscore = 0;
+        cscore = 0;
         holdbtn.setEnabled(true);
         rollbtn.setEnabled(true);
         compscoreview.setText("Computer Score: 0");
