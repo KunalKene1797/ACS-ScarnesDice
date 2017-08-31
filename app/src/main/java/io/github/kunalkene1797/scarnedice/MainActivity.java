@@ -138,7 +138,7 @@ public class MainActivity extends AppCompatActivity {
                 holdbtn.setEnabled(true);
                 rollbtn.setEnabled(true);
                 compscore = cpuinitialscore;
-                Toast.makeText(this, "Computer Scored " + dicevalue, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Computer Rolled " + dicevalue, Toast.LENGTH_SHORT).show();
                 setscore();
                 break;
 
@@ -146,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
                 dicefaceview.setImageResource(diceface[dicevalue - 1]);
                 cscore += dicevalue;
                 setscore();
-                Toast.makeText(this, "Computer Scored " + dicevalue, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Computer Rolled " + dicevalue, Toast.LENGTH_SHORT).show();
                 compscore += dicevalue;
             }
         }while (cscore < 10);
@@ -182,6 +182,7 @@ public class MainActivity extends AppCompatActivity {
         cscore = 0;
         holdbtn.setEnabled(true);
         rollbtn.setEnabled(true);
+        yourolled.setText("Press Roll To Throw The Dice");
         compscoreview.setText("Computer Score: 0");
         pscore.setText("Your Score: 0");
     }
